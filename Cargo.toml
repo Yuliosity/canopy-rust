@@ -1,0 +1,6 @@
+[package]
+name = "canopy-rust"
+version = "0.1.0"
+authors = ["Yury Gorshkov <y.s.gorshkov@gmail.com>"]
+
+[dependencies]
