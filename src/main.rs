@@ -9,17 +9,68 @@ struct Profile {
     data: Vec<f32>,
 }
 
-// impl Profile {
-// }
+impl Profile {
+    fn new(size: u8) -> Profile {
+        Profile {
+            id: "!GENERATED!",
+            data: vec![0; size]
+        }
+    }
 
-// fn create_canopy(origin: &Profile) {
-//     mut vec<&Profile> neighbours;
-//
-// }
-//
-// fn canopy_walk() {
-//
-// }
+    fn nonzero_components(&self) -> u8 {
+        data.iter().filter(|x| x > 0).count()
+    }
+
+    fn single_point_proportion(&self) -> f32 {
+        0 //TODO: implement
+    }
+}
+
+fn distance(p1, p2: Profile) -> f32 {
+
+}
+
+fn centroid(cluster: &Vec<Profile>) -> Profile {
+    let mut centroid = Point::new(cluster[0].data.size());
+    //TODO: implement
+    centroid
+}
+
+struct Canopy<'a> {
+    center: &Profile<'a>,
+    neighbours: Vec<&Profile<'a>>
+}
+
+impl Canopy {
+    fn new(origin: &Profile<'a>) -> Canopy<'a> {
+        let mut neighbours: Vec<&Profile>;
+        //TODO: implement
+        Canopy {
+            center: &origin,
+            neighbours: Vec::new()
+        }
+    }
+
+    fn update_center(&mut self) {
+        //TODO: implement
+    }
+}
+
+impl Ord for Canopy {
+    fn cmp(&self, other: &Canopy) -> Ordering {
+        self.neighbours.size().cmp(other.neighbours.size())
+    }
+}
+
+impl Vec<T> {
+    fn filter_inplace(&mut self, pred: |&T| -> bool {
+        //TODO: implement
+    }
+}
+
+fn canopy_walk() {
+    //TODO: implement
+}
 
 fn main() {
     //TODO: Parse command line options
@@ -37,8 +88,12 @@ fn main() {
     //TODO: Precompute pearseon correlations
 
     //TODO: Canopy clustering
+    let mut canopies: Vec<Canopy> = Vec::new();
 
     //TODO: Filtering canopies
+    //let canopies = canopies.
+    canopies.filter_inplace(|c| c.center.nonzero_components() > 0);
+
 
     //Writing results
     for profile in profiles {
